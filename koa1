@@ -1,0 +1,53 @@
+koa 基于nodejs的下一代web开发框架
+express原班人马开发
+植入es6语法 7 8
+async  await  异步加载  返回promise对象 resolve reject
+
+ctx=context 上下文  koa里把request 和 response 封装在 ctx
+
+
+jquery zepto.js
+
+npm init
+npm install koa --save
+
+post:
+npm install koa-bodyparser --save
+
+
+路由：
+npm install koa-router --save
+
+app.use(router.routes());   //加载路由中间件
+app.use(router.allowedMethods());  //处理异常请求
+
+模板引擎
+npm install koa-views ejs art-template koa-art-template --save
+
+//使用选中视图  文件后缀为html
+app.use(views(__dirname+"/views",{
+//    映射  将HTML文件当做ejs文件去解析
+    map:{html:"ejs"}
+}))
+
+//app.use(views('views',{
+//    extension:'ejs'
+//}))
+
+
+
+静态资源
+npm install koa-static --save
+
+
+
+cookie
+ctx.cookies.set(key,value,[options])
+ctx.cookies.get(key)
+[options]:
+maxAge=> 一个数字表示从Date.now()得到的毫秒值
+expires=> cookie过期时间
+path=> cookie路径，默认‘/’
+domain=> 域名
+secure=> 默认fasle，设置成true则https也可访问
+httpOnly=> 是否只是服务器可访问cookie，默认true
